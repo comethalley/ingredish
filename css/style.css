@@ -4,20 +4,35 @@
   margin: 0%;
 }
 
-nav {
-  background-color: greenyellow;
+header {
+  background-color: #00bf63;
+  display: flex;
+  justify-content: space-between;
+}
+
+header > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0%;
+  margin: 0%;
+}
+
+.ingredish-logo {
+  width: 120px;
+  height: 70px;
 }
 
 ul {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: end;
+  justify-content: center;
 }
 
 li {
   list-style: none;
-  padding: 2rem;
+  padding: 1rem;
 }
 
 li > a {
@@ -25,18 +40,25 @@ li > a {
 }
 
 main {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   max-height: 100%;
+}
+
+.ingredish-banner {
+  display: flex;
+  justify-content: center;
+  padding-top: 70px;
+}
+
+.ingredish-img {
+  width: 80%;
+  height: 200px;
 }
 
 .search-wrapper {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  padding-top: 200px;
+  padding-top: 50px;
   width: 100%;
 }
 
@@ -51,7 +73,7 @@ main {
 .search-wrapper > button {
   width: 100px;
   height: 50px;
-  background-color: greenyellow;
+  background-color: #f4901d;
 }
 
 #search,
