@@ -145,3 +145,9 @@ main {
   justify-content: end;
   padding-top: 10px;
 }
+
+.ingredients-list {
+  display: flex;
+  flex-direction: column;
+  list-style-type: circle;
+}

@@ -10,18 +10,22 @@ document.getElementById("submit").onclick = function () {
     .then((data) => {
       console.log(data);
       data.forEach((recipe) => {
-        const title = `<h1>${recipe.title}</h1>`;
-        const img = `<img src="${recipe.image}" />`;
-
-        let ingredients = "<ul>";
+        let ingredients = "<p>";
         recipe.missedIngredients.forEach((ingredient) => {
-          ingredients += `<li>${ingredient.name}</li>`;
+          ingredients += `${ingredient.name},`;
         });
-        ingredients += "</ul>";
+        ingredients += "</p>";
 
-        document.getElementById("recipe-name").innerHTML = title;
-        document.getElementById("recipe-img").innerHTML = img;
-        document.getElementById("recipe-ingredients").innerHTML = ingredients;
+        const markup = `<div class="recipe-card">
+        <div class="card-image" ><img src="${recipe.image}"/></div>
+        <div class="card-title"><h1>${recipe.title}</h1></div>
+        <div class="card-info">${ingredients}</div>
+        <a href="recipe.html/${recipe.id}">See the recipe</a>
+      </div>`;
+
+        document
+          .getElementById("recipe")
+          .insertAdjacentHTML("beforeend", markup);
       });
     })
     .catch((error) => console.log(error));
