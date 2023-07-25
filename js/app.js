@@ -1,25 +1,30 @@
 document.getElementById("submit").onclick = function () {
   const query = document.getElementById("search").value;
+  const ingredients = query.split(",").map((ingredient) => ingredient.trim());
+
+  // Construct the ingredients part of the URL
+  const ingredientsString = ingredients.join(",+");
 
   fetch(
     `https://api.spoonacular.com/recipes/findByIngredients?apiKey=27b78a980d26472eb17d8ee92d95dc71&ingredients=${query}`
   )
     .then((res) => {
+      console.log(res);
       return res.json();
     })
     .then((data) => {
       console.log(data);
       data.forEach((recipe) => {
-        let ingredients = "<p>";
+        let list = "<p>";
         recipe.missedIngredients.forEach((ingredient) => {
-          ingredients += `${ingredient.name},`;
+          list += `${ingredient.original},`;
         });
-        ingredients += "</p>";
+        list += "</p>";
 
         const markup = `<div class="recipe-card">
-        <div class="card-image" ><img src="${recipe.image}"/></div>
-        <div class="card-title"><h1>${recipe.title}</h1></div>
-        <div class="card-info">${ingredients}</div>
+        <div class="card-image" ><img src="${recipe.image}" class="recipe-img"/></div>
+        <div class="card-title"><h3>${recipe.title}</h3></div>
+        <div class="card-info"><h4>Ingredients</h4>${list}</div>
         <a href="recipe.html/${recipe.id}">See the recipe</a>
       </div>`;
 
