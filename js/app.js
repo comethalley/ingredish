@@ -18,6 +18,9 @@ document.getElementById("submit").onclick = function () {
     })
     .then((data) => {
       console.log(data);
+      const recipeContainer = document.getElementById("recipe");
+      recipeContainer.innerHTML = ""; // Clear previous results before appending new ones
+
       data.forEach((recipe) => {
         let list = "<p>";
         recipe.missedIngredients.forEach((ingredient) => {
@@ -26,16 +29,27 @@ document.getElementById("submit").onclick = function () {
         list += "</p>";
 
         const markup = `<div class="recipe-card">
-        <img src="${recipe.image}" class="recipe-img"/>
-        <div class="card-title"><h3>${recipe.title}</h3></div>
-        <div class="card-info"><h5>Ingredients</h5>${list}</div>
-        <a href="recipe.html?${recipe.id}">See the recipe</a>
-      </div>`;
+          <img src="${recipe.image}" class="recipe-img"/>
+          <div class="card-title"><h3>${recipe.title}</h3></div>
+          <div class="card-info"><h5>Ingredients</h5>${list}</div>
+          <a href="pages/recipe.html?${recipe.id}">See the recipe</a>
+        </div>`;
 
-        document
-          .getElementById("recipe")
-          .insertAdjacentHTML("beforeend", markup);
+        recipeContainer.insertAdjacentHTML("beforeend", markup);
       });
     })
     .catch((error) => console.log(error));
 };
+
+//loading function
+window.addEventListener("load", () => {
+  const loader = document.querySelector(".loader");
+
+  loader.classList.add("loader-hidden");
+
+  loader.addEventListener("transitionend", () => {
+    if (document.body.contains(loader)) {
+      document.body.removeChild(loader);
+    }
+  });
+});
