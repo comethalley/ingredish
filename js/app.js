@@ -2,12 +2,15 @@ const apiUrl = "https://api.spoonacular.com";
 const endpoint = "recipes/findByIngredients";
 const apiKey = "27b78a980d26472eb17d8ee92d95dc71";
 
-document.getElementById("submit").onclick = function () {
-  const query = document.getElementById("search").value;
-  const ingredients = query.split(",").map((ingredient) => ingredient.trim());
+function searchIngredients(parameterName) {
+  const ingredients = parameterName
+    .split(" ")
+    .map((ingredient) => ingredient.trim());
 
   // Construct the ingredients part of the URL
   const ingredientsString = ingredients.join(",+");
+
+  console.log(ingredientsString);
 
   fetch(
     `${apiUrl}/${endpoint}?apiKey=${apiKey}&ingredients=${ingredientsString}`
@@ -39,7 +42,29 @@ document.getElementById("submit").onclick = function () {
       });
     })
     .catch((error) => console.log(error));
-};
+}
+
+function getParameter(parameterName) {
+  let parameters = new URLSearchParams(window.location.search);
+  return parameters.get(parameterName);
+}
+
+function handleFormSubmission(event) {
+  event.preventDefault();
+  const searchInput = document.getElementById("search");
+  const searchValue = searchInput.value;
+
+  if (searchValue) {
+    // Update the URL query string with the entered ingredients
+    const parameters = new URLSearchParams(window.location.search);
+    parameters.set("search", searchValue);
+    const newUrl = `${window.location.pathname}?${parameters.toString()}`;
+    window.history.pushState(null, null, newUrl);
+
+    // Fetch recipes based on the entered ingredients
+    searchIngredients(searchValue);
+  }
+}
 
 //loading function
 window.addEventListener("load", () => {

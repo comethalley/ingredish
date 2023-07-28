@@ -35,17 +35,21 @@
       </div>
 
       <div class="search-container">
-        <div class="search-wrapper">
+        <form
+          method="GET"
+          class="search-wrapper"
+          onsubmit="handleFormSubmission(event)"
+        >
           <input
             type="search"
             name="search"
             id="search"
             placeholder="Enter ingredients separated by commas"
           />
-          <button id="submit">
+          <button type="submit">
             <i class="fa-solid fa-magnifying-glass"></i>
           </button>
-        </div>
+        </form>
       </div>
 
       <div class="recipe" id="recipe">
