@@ -206,3 +206,11 @@ main {
     transform: rotate(1turn);
   }
 }
+
+/*recipe*/
+
+.grid{
+  display: grid;
+  grid-template-rows: auto auto auto;
+  grid-template-columns: auto auto auto;
+}

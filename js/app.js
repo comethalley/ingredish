@@ -35,7 +35,7 @@ function searchIngredients(parameterName) {
           <img src="${recipe.image}" class="recipe-img"/>
           <div class="card-title"><h3>${recipe.title}</h3></div>
           <div class="card-info"><h5>Ingredients</h5>${list}</div>
-          <a href="pages/recipe.html?${recipe.id}">See the recipe</a>
+          <a href="pages/recipe.html?id=${recipe.id}">See the recipe</a>
         </div>`;
 
         recipeContainer.insertAdjacentHTML("beforeend", markup);
@@ -47,6 +47,38 @@ function searchIngredients(parameterName) {
 function getParameter(parameterName) {
   let parameters = new URLSearchParams(window.location.search);
   return parameters.get(parameterName);
+}
+
+function getRecipe(parameterName) {
+  const recipe = parameterName;
+  console.log(recipe);
+  fetch(`${apiUrl}/recipes/${recipe}/information?apiKey=${apiKey}`)
+    .then((res) => {
+      console.log(res);
+      return res.json();
+    })
+    .then((data) => {
+      console.log(data);
+
+      data.forEach((info) => {
+        let list = "<p>";
+        info.extendedIngredients.forEach((ingredient) => {
+          list += `${ingredient.original},`;
+        });
+        list += "</p>";
+
+        const markup = `<div class="recipe-card">
+        <div class="image"><img src="${info.image}" class="recipe-img"/></div>
+        <div class="about"><h3>${info.summary}</h3></div>
+        <div class="ingredients"><h5>Ingredients</h5>${list}</div>
+        </div>`;
+
+        document
+          .getElementsByClassName("grid")
+          .insertAdjacentHTML("beforeend", markup);
+      });
+    })
+    .catch((error) => console.log(error));
 }
 
 function handleFormSubmission(event) {
@@ -77,4 +109,10 @@ window.addEventListener("load", () => {
       document.body.removeChild(loader);
     }
   });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const recipeId = getParameter("id");
+
+  getRecipe(recipeId);
 });

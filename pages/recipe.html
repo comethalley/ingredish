@@ -11,27 +11,24 @@
     ></script>
   </head>
   <body>
+    <header>
+      <div>
+        <a href="/index.html"
+          ><img
+            src="/img/ingredish-logo-white.png"
+            alt=""
+            class="ingredish-logo"
+        /></a>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="">Home</a></li>
+          <li><a href="">About</a></li>
+        </ul>
+      </nav>
+    </header>
     <main>
-      <div class="ingredish-banner">
-        <img src="img/ingredish.png" alt="" class="ingredish-img" />
-        <p>Find the best recipe based on your ingredients!</p>
-      </div>
-
-      <div class="search-container">
-        <div class="search-wrapper">
-          <input
-            type="search"
-            name="search"
-            id="search"
-            placeholder="Enter ingredients separated by commas"
-          />
-          <button id="submit">
-            <i class="fa-solid fa-magnifying-glass"></i>
-          </button>
-        </div>
-      </div>
-
-      <div class="recipe" id="recipe"></div>
+      <div class="grid"></div>
       <div class="loader"></div>
     </main>
     <script src="/js/app.js" defer></script>
