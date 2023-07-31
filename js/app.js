@@ -60,23 +60,18 @@ function getRecipe(parameterName) {
     .then((data) => {
       console.log(data);
 
-      data.forEach((info) => {
-        let list = "<p>";
-        info.extendedIngredients.forEach((ingredient) => {
-          list += `${ingredient.original},`;
-        });
-        list += "</p>";
-
-        const markup = `<div class="recipe-card">
-        <div class="image"><img src="${info.image}" class="recipe-img"/></div>
-        <div class="about"><h3>${info.summary}</h3></div>
-        <div class="ingredients"><h5>Ingredients</h5>${list}</div>
-        </div>`;
-
-        document
-          .getElementsByClassName("grid")
-          .insertAdjacentHTML("beforeend", markup);
+      let list = "<ul>";
+      data.extendedIngredients.forEach((ingredient) => {
+        list += `<li>${ingredient.original}</li>`;
       });
+      list += "</ul>";
+
+      const markup = `<div class="image"><img src="${data.image}" /></div>
+      <div class="about"><h2>${data.title}</h2><hr /><p>${data.summary}</p></div>
+      <div class="ingredients"><h5>Ingredients</h5>${list}</div>
+      <div class="ingredients"><h5>Instruction</h5><p>${data.instructions}</p></div>`;
+
+      document.getElementById("grid").insertAdjacentHTML("beforeend", markup);
     })
     .catch((error) => console.log(error));
 }

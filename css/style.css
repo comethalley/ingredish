@@ -4,7 +4,7 @@
   box-sizing: border-box;
   padding: 0%;
   margin: 0%;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 header {
@@ -26,19 +26,19 @@ header > div {
   height: 70px;
 }
 
-ul {
+nav ul {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
 }
 
-li {
+nav li {
   list-style: none;
   padding: 1rem;
 }
 
-li > a {
+nav li > a {
   text-decoration: none;
 }
 
@@ -209,8 +209,26 @@ main {
 
 /*recipe*/
 
-.grid{
+.grid {
   display: grid;
   grid-template-rows: auto auto auto;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: auto auto;
+  padding: 100px;
+  justify-content: center;
+  align-items: start;
+  row-gap: 10px;
+  column-gap: 40px;
+}
+
+.image {
+  grid-row: span 3;
+}
+
+.image > img {
+  height: 400px;
+  width: 400px;
+}
+
+p {
+  text-indent: 20px;
 }
