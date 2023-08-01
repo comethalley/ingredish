@@ -60,16 +60,16 @@ function getRecipe(parameterName) {
     .then((data) => {
       console.log(data);
 
-      let list = "<ul>";
+      let list = "<tr>";
       data.extendedIngredients.forEach((ingredient) => {
-        list += `<li>${ingredient.original}</li>`;
+        list += `<td><img src="https://spoonacular.com/cdn/ingredients_100x100/${ingredient.image}" /><br/>${ingredient.original}</td>`;
       });
-      list += "</ul>";
+      list += "</tr>";
 
-      const markup = `<div class="image"><img src="${data.image}" /></div>
-      <div class="about"><h2>${data.title}</h2><hr /><p>${data.summary}</p></div>
-      <div class="ingredients"><h5>Ingredients</h5>${list}</div>
-      <div class="ingredients"><h5>Instruction</h5><p>${data.instructions}</p></div>`;
+      const markup = `<div class="image"><h1>${data.title}</h1><div class="recipe-img"><img src="${data.image}" /><span>Image:<a href="${data.sourceUrl}">${data.sourceName}</a></span></div></div>
+      <div class="about"><p>${data.summary}</p></div>
+      <div class="ingredients"><h4>Ingredients</h4><table>${list}</table></div>
+      <div class="ingredients"><h4>Instruction</h4><p>${data.instructions}</p></div>`;
 
       document.getElementById("grid").insertAdjacentHTML("beforeend", markup);
     })
