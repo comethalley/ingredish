@@ -15,13 +15,29 @@
       <div>
         <a href="/index.html"
           ><img
-            src="/img/ingredish-logo-white.png"
+            src="/img/ingredish-logo-banner.png"
             alt=""
             class="ingredish-logo"
         /></a>
       </div>
       <div>
-        <img src="/img/ingredish.png" alt="" class="ingredish-banner" />
+        <div class="search-container">
+          <form
+            method="GET"
+            class="search-wrapper"
+            onsubmit="handleFormSubmission(event)"
+          >
+            <input
+              type="search"
+              name="search"
+              id="search"
+              placeholder="Search Recipe"
+            />
+            <button type="submit">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </form>
+        </div>
       </div>
       <nav>
         <ul>
