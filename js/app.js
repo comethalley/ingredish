@@ -1,5 +1,6 @@
 const apiUrl = "https://api.spoonacular.com";
 const endpoint = "recipes/findByIngredients";
+const complexSearch = "complexSearch";
 const apiKey = "27b78a980d26472eb17d8ee92d95dc71";
 
 function searchIngredients(parameterName) {
@@ -66,20 +67,25 @@ function getRecipe(parameterName) {
       });
       list += "</tr>";
 
-      const markup = `<div class="image"><h1>${data.title}</h1><div class="recipe-img"><img src="${data.image}" /><span>Image:<a href="${data.sourceUrl}">${data.sourceName}</a></span></div></div>
+      const markup = `<div class="image"><h1>${data.title}</h1><hr><div class="recipe-img"><img src="${data.image}" /><span>Image:<a href="${data.sourceUrl}">${data.sourceName}</a></span></div></div>
       <div class="about"><p>${data.summary}</p></div>
       <div class="ingredients"><h4>Ingredients</h4><table>${list}</table></div>
       <div class="ingredients"><h4>Instruction</h4><p>${data.instructions}</p></div>`;
 
       document.getElementById("grid").insertAdjacentHTML("beforeend", markup);
+      document.getElementById("title").innerHTML = data.title + " | Ingredish";
     })
     .catch((error) => console.log(error));
 }
 
 function searchRecipe(parameterName) {
   const searchRecipe = parameterName;
+  document.getElementById("result").innerHTML =
+    "Result based on " + searchRecipe;
   console.log(searchRecipe);
-  fetch(`${apiUrl}/recipes/${searchRecipe}/information?apiKey=${apiKey}`)
+  fetch(
+    `${apiUrl}/recipes/${complexSearch}?apiKey=${apiKey}&query=${searchRecipe}`
+  )
     .then((res) => {
       console.log(res);
       return res.json();
@@ -87,18 +93,17 @@ function searchRecipe(parameterName) {
     .then((data) => {
       console.log(data);
 
-      let item = "<tr>";
-      data.extendedIngredients.forEach((ingredient) => {
-        item += `<td><img src="https://spoonacular.com/cdn/ingredients_100x100/${ingredient.image}" /><br/>${ingredient.original}</td>`;
+      data.results.forEach((query) => {
+        const markup = `<div class="recipe-card">
+          <img src="${query.image}" class="recipe-img"/>
+          <div class="card-title"><h3>${query.title}</h3></div>
+          <a href="pages/recipe.html?search=${query.id}">See the recipe</a>
+        </div>`;
+
+        document
+          .getElementById("query-container")
+          .insertAdjacentHTML("beforeend", markup);
       });
-      item += "</tr>";
-
-      const markup = `<div class="image"><h1>${data.title}</h1><div class="recipe-img"><img src="${data.image}" /><span>Image:<a href="${data.sourceUrl}">${data.sourceName}</a></span></div></div>
-      <div class="about"><p>${data.summary}</p></div>
-      <div class="ingredients"><h4>Ingredients</h4><table>${item}</table></div>
-      <div class="ingredients"><h4>Instruction</h4><p>${data.instructions}</p></div>`;
-
-      document.getElementById("grid").innerHTML = markup;
     })
     .catch((error) => console.log(error));
 }
@@ -117,7 +122,24 @@ function handleFormSubmission(event) {
 
     // Fetch recipes based on the entered ingredients
     searchIngredients(searchValue);
-    searchRecipe(searchValue);
+  }
+}
+
+function handleSearchQuerySubmission(event) {
+  event.preventDefault();
+  const searchInput = document.getElementById("search");
+  const searchValue = searchInput.value;
+
+  if (searchValue) {
+    // Update the URL query string with the entered ingredients
+    const parameters = new URLSearchParams(window.location.search);
+    parameters.set("search", searchValue);
+    const newUrl = `${window.location.pathname}?${parameters.toString()}`;
+    window.history.pushState(null, null, newUrl);
+
+    // Fetch recipes based on the entered by users
+
+    window.location.href = "/pages/search.html" + window.location.search;
   }
 }
 
@@ -138,4 +160,5 @@ document.addEventListener("DOMContentLoaded", function () {
   const recipeId = getParameter("search");
 
   getRecipe(recipeId);
+  searchRecipe(recipeId);
 });
