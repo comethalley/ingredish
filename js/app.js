@@ -61,16 +61,16 @@ function getRecipe(parameterName) {
     .then((data) => {
       console.log(data);
 
-      let list = "<tr>";
+      let list = "<div class ='ingredients-grid'>";
       data.extendedIngredients.forEach((ingredient) => {
-        list += `<td><img src="https://spoonacular.com/cdn/ingredients_100x100/${ingredient.image}" /><br/>${ingredient.original}</td>`;
+        list += `<div class ='ingredients-list'><img src="https://spoonacular.com/cdn/ingredients_100x100/${ingredient.image}" /><p>${ingredient.original}</p></div>`;
       });
-      list += "</tr>";
+      list += "</div>";
 
       const markup = `<div class="image"><h1>${data.title}</h1><hr><div class="recipe-img"><img src="${data.image}" /><span>Image:<a href="${data.sourceUrl}">${data.sourceName}</a></span></div></div>
       <div class="about"><p>${data.summary}</p></div>
-      <div class="ingredients"><h4>Ingredients</h4><table>${list}</table></div>
-      <div class="ingredients"><h4>Instruction</h4><p>${data.instructions}</p></div>`;
+      <div class="ingredients"><h2>Ingredients</h2>${list}</div>
+      <div class="instruction"><h2>Instruction</h2><p>${data.instructions}</p></div>`;
 
       document.getElementById("grid").insertAdjacentHTML("beforeend", markup);
       document.getElementById("title").innerHTML = data.title + " | Ingredish";
@@ -81,7 +81,7 @@ function getRecipe(parameterName) {
 function searchRecipe(parameterName) {
   const searchRecipe = parameterName;
   document.getElementById("result").innerHTML =
-    "Result based on " + searchRecipe;
+    "Result based on " + '"' + searchRecipe + '"';
   console.log(searchRecipe);
   fetch(
     `${apiUrl}/recipes/${complexSearch}?apiKey=${apiKey}&query=${searchRecipe}`
@@ -95,9 +95,9 @@ function searchRecipe(parameterName) {
 
       data.results.forEach((query) => {
         const markup = `<div class="recipe-card">
-          <img src="${query.image}" class="recipe-img"/>
+          <img src="${query.image}" class="recipe-image"/>
           <div class="card-title"><h3>${query.title}</h3></div>
-          <a href="pages/recipe.html?search=${query.id}">See the recipe</a>
+          <a href="recipe.html?search=${query.id}">See the recipe</a>
         </div>`;
 
         document
@@ -108,6 +108,7 @@ function searchRecipe(parameterName) {
     .catch((error) => console.log(error));
 }
 
+//for searching ingredients
 function handleFormSubmission(event) {
   event.preventDefault();
   const searchInput = document.getElementById("search");
@@ -125,6 +126,7 @@ function handleFormSubmission(event) {
   }
 }
 
+//for searching recipe
 function handleSearchQuerySubmission(event) {
   event.preventDefault();
   const searchInput = document.getElementById("search");

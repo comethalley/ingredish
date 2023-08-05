@@ -1,10 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Kalam:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Barlow&family=Kalam:wght@300&display=swap");
 
 * {
   box-sizing: border-box;
   padding: 0%;
   margin: 0%;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: "Barlow", sans-serif;
 }
 
 header {
@@ -164,6 +165,10 @@ main {
   flex-direction: column;
 }
 
+.image > h1 {
+  font-size: 40px;
+}
+
 .recipe-img {
   display: flex;
   flex-direction: column;
@@ -178,10 +183,86 @@ main {
 }
 
 p {
+  font-size: 20px;
   text-indent: 20px;
 }
 
 .about,
-.ingredients {
+.ingredients,
+.instruction {
   padding-top: 25px;
+}
+
+.ingredients-grid {
+  padding-top: 20px;
+  display: grid;
+  grid-template-rows: auto auto;
+  grid-template-columns: auto auto auto auto;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.ingredients-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.ingredients-list > img {
+  width: 100px;
+  height: 100px;
+}
+
+.instruction > p {
+  padding-top: 20px;
+}
+
+.instruction > ol {
+  font-size: 20px;
+}
+
+.query-container {
+  display: grid;
+  grid-template-rows: auto auto auto auto;
+  grid-template-columns: auto auto auto auto;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 50px;
+  column-gap: 50px;
+  row-gap: 50px;
+}
+
+.query-container > h1 {
+  grid-column: span 4;
+}
+
+.recipe-card {
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  width: 285px;
+  height: auto;
+}
+
+.recipe-card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.recipe-image {
+  width: 100%;
+  height: 250px;
+  border-radius: 5px 5px 0 0;
+}
+
+.card-title {
+  display: flex;
+  justify-content: center;
+  padding-top: 30px;
+}
+
+.recipe-card > a {
+  display: flex;
+  justify-content: end;
+  padding: 10px;
 }
