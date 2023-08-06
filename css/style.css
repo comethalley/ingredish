@@ -246,3 +246,80 @@ main {
 p {
   text-indent: 20px;
 }
+
+/* 2xl */
+@media (max-width: 1536px) {
+}
+
+/* xl */
+@media (max-width: 1280px) {
+  .recipe {
+    display: grid;
+    grid-template-rows: auto auto auto auto;
+    grid-template-columns: auto auto auto;
+  }
+}
+
+/* lg */
+@media (max-width: 948px) {
+  .recipe {
+    display: grid;
+    grid-template-rows: auto auto auto auto;
+    grid-template-columns: auto auto;
+  }
+}
+
+/* md */
+@media (max-width: 798px) {
+  .ingredish-banner > p {
+    text-align: center;
+    font-size: 30px;
+  }
+
+  .recipe {
+    display: grid;
+    grid-template-rows: auto auto auto auto;
+    grid-template-columns: auto;
+  }
+
+  .recipe-card {
+    width: 400px;
+  }
+}
+
+/* sm */
+@media (max-width: 640px) {
+  .ingredish-img {
+    width: 80%;
+    height: 100px;
+  }
+  .ingredish-banner > p {
+    font-size: 20px;
+  }
+
+  #search {
+    width: 80%;
+    margin-right: 20px;
+    height: 25px;
+    font-size: small;
+    text-indent: 20px;
+  }
+
+  .search-wrapper > button {
+    width: 40px;
+    height: 25px;
+    font-size: 12px;
+  }
+
+  .recipe-card {
+    width: 350px;
+  }
+
+  .card-title > h3 {
+    font-size: 16px;
+  }
+}
+
+/* xs */
+@media (max-width: 475px) {
+}

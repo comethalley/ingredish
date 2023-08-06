@@ -20,24 +20,26 @@
             class="ingredish-logo"
         /></a>
       </div>
-      <div>
-        <div class="search-container">
-          <form
-            method="GET"
-            class="search-wrapper"
-            onsubmit="handleSearchQuerySubmission(event)"
-          >
-            <input
-              type="search"
-              name="search"
-              id="search"
-              placeholder="Search Recipe"
-            />
-            <button type="submit">
-              <i class="fa-solid fa-magnifying-glass"></i>
-            </button>
-          </form>
-        </div>
+
+      <div class="search-container">
+        <form
+          method="GET"
+          class="search-wrapper"
+          onsubmit="handleSearchQuerySubmission(event)"
+        >
+          <input
+            type="search"
+            name="search"
+            id="search"
+            placeholder="Search Recipe"
+          />
+          <button type="submit">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </form>
+        <a href="javascript:void(0);" class="icon" onclick="">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </a>
       </div>
       <nav>
         <ul>
