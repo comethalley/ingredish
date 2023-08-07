@@ -164,3 +164,12 @@ document.addEventListener("DOMContentLoaded", function () {
   getRecipe(recipeId);
   searchRecipe(recipeId);
 });
+
+function searchWrapper() {
+  let x = document.getElementById("header");
+  if (x.className === "") {
+    x.className += "responsive";
+  } else {
+    x.className = "";
+  }
+}

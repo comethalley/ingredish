@@ -11,7 +11,7 @@
     ></script>
   </head>
   <body>
-    <header>
+    <header id="header">
       <div>
         <a href="/index.html"
           ><img
@@ -22,6 +22,9 @@
       </div>
 
       <div class="search-container">
+        <a href="javascript:void(0);" class="arrow" onclick="searchWrapper()">
+          <i class="fa-solid fa-arrow-left"></i
+        ></a>
         <form
           method="GET"
           class="search-wrapper"
@@ -37,12 +40,19 @@
             <i class="fa-solid fa-magnifying-glass"></i>
           </button>
         </form>
-        <a href="javascript:void(0);" class="icon" onclick="">
-          <i class="fa-solid fa-magnifying-glass"></i>
-        </a>
       </div>
       <nav>
         <ul>
+          <li>
+            <a
+              href="javascript:void(0);"
+              class="icon"
+              onclick="searchWrapper()"
+            >
+              <i class="fa-solid fa-magnifying-glass"></i
+              ><span class="navbar-text">Search</span></a
+            >
+          </li>
           <li>
             <a href="/index.html"
               ><i class="fa-solid fa-house"></i
@@ -59,9 +69,8 @@
       </nav>
     </header>
     <main>
-      <div class="query-container" id="query-container">
-        <h1 id="result"></h1>
-      </div>
+      <h1 id="result"></h1>
+      <div class="query-container" id="query-container"></div>
     </main>
     <div class="loader"></div>
     <script src="/js/app.js" defer></script>
