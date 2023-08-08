@@ -13,7 +13,6 @@ header {
   display: flex;
   justify-content: space-between;
   margin: 0%;
-  position: sticky;
 }
 
 header > div {
@@ -80,6 +79,8 @@ main {
   justify-content: center;
   padding-top: 20px;
   width: 100%;
+  position: sticky;
+  top: 0;
 }
 
 .search-wrapper {
@@ -90,6 +91,7 @@ main {
   padding: 10px 20px;
   border-style: solid;
   border-width: 1px;
+  background-color: white;
 }
 
 #search {
@@ -98,7 +100,7 @@ main {
   height: 50px;
   font-size: large;
   text-indent: 20px;
-  background: transparent;
+  background: white;
   flex: 1;
   border: 0;
   outline: none;

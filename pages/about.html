@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title id="title">Ingredish | Find your recipe</title>
+    <link rel="stylesheet" href="/css/recipe.css" />
+    <script
+      src="https://kit.fontawesome.com/a7e3800dc5.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header id="header">
+      <div>
+        <a href="/index.html"
+          ><img
+            src="/img/ingredish-logo-banner.png"
+            alt=""
+            class="ingredish-logo"
+        /></a>
+      </div>
+
+      <div class="search-container">
+        <a href="javascript:void(0);" class="arrow" onclick="searchWrapper()">
+          <i class="fa-solid fa-arrow-left"></i
+        ></a>
+        <form
+          method="GET"
+          class="search-wrapper"
+          onsubmit="handleSearchQuerySubmission(event)"
+        >
+          <input
+            type="search"
+            name="search"
+            id="search"
+            placeholder="Search Recipe"
+          />
+          <button type="submit">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </form>
+      </div>
+      <nav>
+        <ul>
+          <li>
+            <a
+              href="javascript:void(0);"
+              class="icon"
+              onclick="searchWrapper()"
+            >
+              <i class="fa-solid fa-magnifying-glass"></i
+              ><span class="navbar-text">Search</span></a
+            >
+          </li>
+          <li>
+            <a href="/index.html"
+              ><i class="fa-solid fa-house"></i
+              ><span class="navbar-text">Home</span></a
+            >
+          </li>
+          <li>
+            <a href="/about.html"
+              ><i class="fa-solid fa-circle-info"></i
+              ><span class="navbar-text">About</span></a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <div class="about">
+        <div class="about-info">
+          <img src="/img/ingredish.png" alt="" />
+          <p>
+            Welcome to Ingredish, your ultimate culinary companion! At
+            Ingredish, we believe that the best meals are created from the
+            ingredients you already have. Our innovative website is designed to
+            simplify your cooking experience by providing you with personalized
+            recipes tailored to your available ingredients. Powered by the
+            Spoonacular API, we harness the power of cutting-edge technology to
+            seamlessly match your pantry with an extensive database of
+            delectable recipes. Say goodbye to the hassle of grocery store runs
+            and hello to the joy of creating delicious, home-cooked dishes
+            without the stress. Ingredish is your go-to platform for culinary
+            inspiration, turning your cooking journey into a delightful
+            adventure. Unleash your inner chef and explore a world of flavors
+            with Ingredish!
+          </p>
+        </div>
+        <div class="values">
+          <div class="mission">
+            <h1>Mission</h1>
+            <p>
+              At Ingredish, our mission is to empower and inspire home cooks of
+              all levels to create delicious meals using the ingredients they
+              have on hand. We strive to make cooking a seamless and enjoyable
+              experience by providing personalized recipe recommendations and
+              innovative solutions that enhance the way people approach their
+              kitchens.
+            </p>
+          </div>
+          <div class="vision">
+            <h1>Vision</h1>
+            <p>
+              Our vision is to revolutionize the way people cook by leveraging
+              technology to connect ingredients, creativity, and convenience. We
+              aim to be the premier platform that empowers individuals to
+              explore their culinary potential, reduce food waste, and cultivate
+              a deeper appreciation for the art of cooking. Through Ingredish,
+              we envision a world where everyone can effortlessly create
+              memorable and satisfying meals, fostering a greater sense of
+              connection and joy around the dining table.
+            </p>
+          </div>
+        </div>
+        <div class="profile">
+          <div class="introduction">
+            <p>
+              Kenneth D. Bonita, an ambitious and driven student whose eyes are
+              set on a future within the dynamic realm of the IT industry. With
+              an unwavering passion for technology and a keen interest in
+              innovation, He is dedicated to honing skills that will not only
+              make him an invaluable asset in the field but also contribute to
+              the ongoing evolution of the digital landscape.
+            </p>
+          </div>
+
+          <div class="profile-card">
+            <img src="/img/bonita.png" class="profile-image" />
+            <div class="card-title"><h2>Kenneth D. Bonita</h2></div>
+            <div class="links">
+              <a href="https://github.com/comethalley"
+                ><i class="fa-brands fa-github"></i
+              ></a>
+              <a href="https://github.com/comethalley"
+                ><i class="fa-brands fa-linkedin"></i
+              ></a>
+              <a href="https://github.com/comethalley"
+                ><i class="fa-solid fa-envelope"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <div class="loader"></div>
+    <script src="/js/app.js" defer></script>
+  </body>
+</html>
