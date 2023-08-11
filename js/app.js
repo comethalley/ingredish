@@ -141,7 +141,7 @@ function handleSearchQuerySubmission(event) {
 
     // Fetch recipes based on the entered by users
 
-    window.location.href = "/pages/search.html" + window.location.search;
+    window.location.href = "../pages/search.html" + window.location.search;
   }
 }
 

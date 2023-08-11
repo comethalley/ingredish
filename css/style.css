@@ -324,4 +324,8 @@ p {
 
 /* xs */
 @media (max-width: 475px) {
+  .ingredish-logo {
+    width: 90px;
+    height: 50px;
+  }
 }

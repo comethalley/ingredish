@@ -490,6 +490,26 @@ p {
     text-decoration: none;
     padding-right: 20px;
   }
+
+  .values {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .profile {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .profile-card {
+    width: 300px;
+  }
+
+  .introduction {
+    padding-top: 20px;
+  }
 }
 
 @media (max-width: 538px) {
