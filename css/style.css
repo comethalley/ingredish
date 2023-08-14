@@ -45,6 +45,11 @@ nav li > a {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  transition: opacity 0.15s;
+}
+
+nav li > a:hover {
+  opacity: 0.8;
 }
 
 .navbar-text {
@@ -109,10 +114,21 @@ main {
 .search-wrapper > button {
   width: 80px;
   height: 50px;
+  border: none;
   background-color: #f4901d;
   font-family: Arial, Helvetica, sans-serif;
   color: white;
   font-size: 16px;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.search-wrapper > button:hover {
+  opacity: 0.8;
+}
+
+.search-wrapper > button:active {
+  opacity: 0.6;
 }
 
 #search,
@@ -170,9 +186,18 @@ main {
 }
 
 .recipe-card > a {
+  text-decoration: none;
   display: flex;
   justify-content: end;
   padding: 10px;
+  color: #ff5757;
+  font-weight: bold;
+  transition: filter 0.15s, underline 0.15s;
+}
+
+.recipe-card > a:hover {
+  filter: brightness(0.8);
+  text-decoration: underline;
 }
 
 .card-title,

@@ -50,6 +50,15 @@ nav li > a {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  transform: opacity 0.15s;
+}
+
+nav li > a:hover {
+  opacity: 0.8;
+}
+
+nav li > a:active {
+  opacity: 0.5;
 }
 
 .navbar-text {
@@ -274,9 +283,18 @@ p {
 }
 
 .recipe-card > a {
+  text-decoration: none;
   display: flex;
   justify-content: end;
   padding: 10px;
+  color: #ff5757;
+  font-weight: bold;
+  transition: filter 0.15s, underline 0.15s;
+}
+
+.recipe-card > a:hover {
+  filter: brightness(0.8);
+  text-decoration: underline;
 }
 
 .about {
@@ -489,6 +507,15 @@ p {
     color: white;
     text-decoration: none;
     padding-right: 20px;
+    transition: opacity 0.15s;
+  }
+
+  .responsive > .search-container > .arrow:hover {
+    opacity: 0.8;
+  }
+
+  .responsive > .search-container > .arrow:active {
+    opacity: 0.5;
   }
 
   .values {
