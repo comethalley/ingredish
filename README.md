@@ -1,1 +1,3 @@
-# ingredish
+# Ingredish
+
+Welcome to Ingredish, your ultimate culinary companion! At Ingredish, we believe that the best meals are created from the ingredients you already have. Our innovative website is designed to simplify your cooking experience by providing you with personalized recipes tailored to your available ingredients. Powered by the Spoonacular API, we harness the power of cutting-edge technology to seamlessly match your pantry with an extensive database of delectable recipes. Say goodbye to the hassle of grocery store runs and hello to the joy of creating delicious, home-cooked dishes without the stress. Ingredish is your go-to platform for culinary inspiration, turning your cooking journey into a delightful adventure. Unleash your inner chef and explore a world of flavors with Ingredish! 
